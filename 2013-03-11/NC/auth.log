@@ -1,0 +1,43 @@
+Mar 10 08:17:01 HP CRON[4968]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 10 08:17:01 HP CRON[4968]: pam_unix(cron:session): session closed for user root
+Mar 10 08:42:49 HP polkitd(authority=local): Unregistered Authentication Agent for unix-session:/org/freedesktop/ConsoleKit/Session2 (system bus name :1.48, object path /org/gnome/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+Mar 10 10:18:57 HP lightdm: pam_unix(lightdm:session): session opened for user lightdm by (uid=0)
+Mar 10 10:18:57 HP lightdm: pam_ck_connector(lightdm:session): nox11 mode, ignoring PAM_TTY :0
+Mar 10 10:19:03 HP lightdm: pam_succeed_if(lightdm:auth): requirement "user ingroup nopasswdlogin" not met by user "scott"
+Mar 10 10:19:05 HP dbus[868]: [system] Rejected send message, 2 matched rules; type="method_call", sender=":1.29" (uid=104 pid=1513 comm="/usr/lib/indicator-datetime/indicator-datetime-ser") interface="org.freedesktop.DBus.Properties" member="GetAll" error name="(unset)" requested_reply="0" destination=":1.15" (uid=0 pid=1158 comm="/usr/sbin/console-kit-daemon --no-daemon ")
+Mar 10 10:19:27 HP login[851]: pam_unix(login:session): session opened for user scott by LOGIN(uid=0)
+Mar 10 11:09:57 HP sudo:    scott : TTY=tty5 ; PWD=/home/scott/bin/lab/2013-03-07 ; USER=root ; COMMAND=/sbin/reboot
+Mar 10 11:09:57 HP sudo: pam_unix(sudo:session): session opened for user root by scott(uid=1000)
+Mar 10 11:09:57 HP sudo: pam_unix(sudo:session): session closed for user root
+Mar 11 11:45:42 HP lightdm: pam_unix(lightdm:session): session opened for user lightdm by (uid=0)
+Mar 11 11:45:42 HP lightdm: pam_ck_connector(lightdm:session): nox11 mode, ignoring PAM_TTY :0
+Mar 11 11:45:43 HP lightdm: pam_succeed_if(lightdm:auth): requirement "user ingroup nopasswdlogin" not met by user "scott"
+Mar 11 11:45:43 HP dbus[772]: [system] Rejected send message, 2 matched rules; type="method_call", sender=":1.23" (uid=104 pid=1441 comm="/usr/lib/indicator-datetime/indicator-datetime-ser") interface="org.freedesktop.DBus.Properties" member="GetAll" error name="(unset)" requested_reply="0" destination=":1.14" (uid=0 pid=1167 comm="/usr/sbin/console-kit-daemon --no-daemon ")
+Mar 11 11:45:48 HP lightdm: pam_unix(lightdm:session): session closed for user lightdm
+Mar 11 11:45:48 HP lightdm: pam_unix(lightdm:session): session opened for user scott by (uid=0)
+Mar 11 11:45:48 HP lightdm: pam_ck_connector(lightdm:session): nox11 mode, ignoring PAM_TTY :0
+Mar 11 11:45:50 HP dbus[772]: [system] Rejected send message, 2 matched rules; type="method_return", sender=":1.2" (uid=0 pid=800 comm="/usr/sbin/bluetoothd ") interface="(unset)" member="(unset)" error name="(unset)" requested_reply="0" destination=":1.45" (uid=1000 pid=1693 comm="bluetooth-applet ")
+Mar 11 11:45:50 HP polkitd(authority=local): Registered Authentication Agent for unix-session:/org/freedesktop/ConsoleKit/Session2 (system bus name :1.50 [/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1], object path /org/gnome/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 11 11:45:52 HP dbus[772]: [system] Rejected send message, 2 matched rules; type="method_call", sender=":1.56" (uid=1000 pid=1766 comm="/usr/lib/indicator-datetime/indicator-datetime-ser") interface="org.freedesktop.DBus.Properties" member="GetAll" error name="(unset)" requested_reply="0" destination=":1.14" (uid=0 pid=1167 comm="/usr/sbin/console-kit-daemon --no-daemon ")
+Mar 11 12:17:01 HP CRON[4538]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 11 12:17:01 HP CRON[4538]: pam_unix(cron:session): session closed for user root
+Mar 11 13:17:01 HP CRON[4973]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 11 13:17:01 HP CRON[4973]: pam_unix(cron:session): session closed for user root
+Mar 11 13:18:11 HP gnome-screensaver-dialog: gkr-pam: unlocked login keyring
+Mar 11 13:18:26 HP sudo:    scott : TTY=pts/2 ; PWD=/home/scott/bin/lab/2013-03-07 ; USER=root ; COMMAND=/sbin/shutdown -h now
+Mar 11 13:18:26 HP sudo: pam_unix(sudo:session): session opened for user root by scott(uid=1000)
+Mar 11 13:18:26 HP sudo: pam_unix(sudo:session): session closed for user root
+Mar 11 16:04:34 HP lightdm: pam_unix(lightdm:session): session opened for user lightdm by (uid=0)
+Mar 11 16:04:34 HP lightdm: pam_ck_connector(lightdm:session): nox11 mode, ignoring PAM_TTY :0
+Mar 11 16:04:40 HP lightdm: pam_succeed_if(lightdm:auth): requirement "user ingroup nopasswdlogin" not met by user "scott"
+Mar 11 16:04:42 HP dbus[839]: [system] Rejected send message, 2 matched rules; type="method_call", sender=":1.24" (uid=104 pid=1446 comm="/usr/lib/indicator-datetime/indicator-datetime-ser") interface="org.freedesktop.DBus.Properties" member="GetAll" error name="(unset)" requested_reply="0" destination=":1.15" (uid=0 pid=1173 comm="/usr/sbin/console-kit-daemon --no-daemon ")
+Mar 11 16:04:44 HP dbus[839]: [system] Rejected send message, 2 matched rules; type="method_call", sender=":1.33" (uid=104 pid=1486 comm="/usr/lib/indicator-datetime/indicator-datetime-ser") interface="org.freedesktop.DBus.Properties" member="GetAll" error name="(unset)" requested_reply="0" destination=":1.15" (uid=0 pid=1173 comm="/usr/sbin/console-kit-daemon --no-daemon ")
+Mar 11 16:05:27 HP login[899]: pam_unix(login:session): session opened for user scott by LOGIN(uid=0)
+Mar 11 16:17:01 HP CRON[1824]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 11 16:17:01 HP CRON[1824]: pam_unix(cron:session): session closed for user root
+Mar 11 17:17:01 HP CRON[1845]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 11 17:17:01 HP CRON[1845]: pam_unix(cron:session): session closed for user root
+Mar 11 18:17:01 HP CRON[1866]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 11 18:17:01 HP CRON[1866]: pam_unix(cron:session): session closed for user root
+Mar 11 19:17:01 HP CRON[1887]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 11 19:17:01 HP CRON[1887]: pam_unix(cron:session): session closed for user root
