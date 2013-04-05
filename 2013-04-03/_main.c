@@ -75,9 +75,9 @@ int main()
 
 	pixel = (char *) malloc( info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8 );
 	getBmpPixel(path, pixel);
-	drawBmp(current_fbp, pixel, info_header.ciWidth, info_header.ciHeight );
+//	drawBmp(current_fbp, pixel, info_header.ciWidth, info_header.ciHeight );
 
-	buildBackground(fbp);
+//	buildBackground(fbp);
 	
 	init_keyboard();
 	

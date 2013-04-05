@@ -239,5 +239,35 @@ void drawBmpPlus(char *fbp, char *pixel, long width, long height, int mul_row, i
 	} 
 }
 
+
+
+void getPixelWidthHeight(char *path, char *pixel, int *width, int *height)
+{
+	int fp = open(path, O_RDONLY);
+	if(fp == -1)
+	{
+		perror("open");
+		exit(-1);
+	}
+	BITMAPFILEHEADER file_header;
+	BITMAPINFOHEADER info_header;
+	bzero(&file_header, sizeof(file_header) );
+	bzero(&info_header, sizeof(info_header) );
+
+	readBitmapFileHeader(fp, &file_header);
+	readBitmapInfoHeader(fp, &info_header);
+
+	*width = info_header.ciWidth;
+	*height = info_header.ciHeight;
+
+	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
+
+	pixel = (char*) malloc (size);
+	readBmpPixel(fp, size, pixel);
+
+	close(fp);
+}
+
+
 #endif
 
