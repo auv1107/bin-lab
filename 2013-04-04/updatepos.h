@@ -4,6 +4,7 @@
 #include "planetype.h"
 #include "kbhit.h"
 #include "clean.h"
+#include "gameinit.h"
 
 extern struct wallpaper *current_wall;
 extern struct fb_var_screeninfo vinfo;
@@ -28,7 +29,7 @@ void update_wallpaper()
 {
 	current_wall->current_pos.y += current_wall->speed;
 	if (current_wall->current_pos.y >= screen_floor_limit )
-		current_wall->current_pos.y = screen_floor_limit ;
+		current_wall->current_pos.y = screen_ceil_limit ;
 	//TODO  optimize the way to reset pos
 }
 
@@ -136,6 +137,8 @@ void update_my_plane(int press)
 		case 'q':
 			{
 				clean_all_for_exit();
+				game_exit();
+				exit(0);
 			}
 	}
 }

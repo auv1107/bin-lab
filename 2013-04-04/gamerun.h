@@ -1,3 +1,7 @@
+#ifndef GAMERUN
+#define GAMERUN _
+
+
 #include "generate.h"
 #include "buildpics.h"
 #include "updatepos.h"
@@ -8,7 +12,7 @@ extern Period;
 void game_run()
 {
 	int i;
-	for(i = 0 ;  i < 56 ; i++ )   //  here should be    for ( ; ; )
+	for(i = 0 ;   ; i++ )   //  here should be    for ( ; ; )
 	{
 		generate_all_things();
 		build_all_things();
@@ -18,3 +22,11 @@ void game_run()
 		usleep(Period);
 	}
 }
+
+
+
+
+
+
+
+#endif

@@ -1,3 +1,7 @@
+#ifndef GAMEINIT
+#define GAMEINIT _
+
+
 #include "initplane.h"
 #include "drawpic.h"
 #include "kbhit.h"
@@ -23,8 +27,8 @@ int game_init()
 	fbd_init();
 	init_all_modules();
 	init_keyboard();
-	Period = 20000;
-	Rate = 50;
+	Period = 10000;
+	Rate = 100;
 	
 //  the margin to the ...
 	margin_left = 10;
@@ -48,3 +52,8 @@ int game_exit()
 	return 0;
 }
 
+
+
+
+
+#endif

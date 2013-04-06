@@ -265,14 +265,19 @@ void getPixelWidthHeight(char *path, char *pixel, int *width, int *height)
 }
 
 
-void readn(char *path, char *pixel, int size)
+void readn(char *path, char *p, int size)
 {
 	int sleft = size;
-	char *p = (char *) malloc (size);
-	int fd = Open(path, O_RDONLY);
+	char *pixel = (char *) malloc (size);
+//	int fd = Open(path, O_RDONLY);
 	int len;
-	Lseek (fd, 54, SEEK_SET);
-
+//	Lseek (fd, 54, SEEK_SET);
+	FILE *fp = fopen(path, "rb");
+	fseek (fp, 54, SEEK_SET);
+	len = fread (pixel, 1, size, fp);
+	memcpy(p, pixel, size);
+	fclose(fp);
+/*
 //	while(sleft > 0)
 	{
 		len = Read (fd, p, 1024);
@@ -281,7 +286,7 @@ void readn(char *path, char *pixel, int size)
 		p += len;
 	}
 	memcpy ( pixel, p, size );
-
+*/
 // TIPS  bad address for read
 }
 #endif

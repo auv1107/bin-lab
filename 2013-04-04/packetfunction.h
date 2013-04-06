@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <stdlib.h>
 
 int Open(const char* pathname, int flags)
 {

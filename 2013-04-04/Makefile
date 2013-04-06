@@ -6,5 +6,8 @@ test:  game.c gameinit.h gamerun.h clean.h basetype.h buildpics.h display.h draw
 clean: 
 	rm -rf test
 
-i: _test.c
+t: _test.c
 	gcc -g -o a.out _test.c -lm
+
+i: _initplane.c initplane.h
+	gcc -g -o a.out _initplane.c initplane.h -lm

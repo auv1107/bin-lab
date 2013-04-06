@@ -15,7 +15,7 @@ void draw_pic_at(int x, int y, char *pixel, int width, int height)
 	p = fbp + x * vinfo.bits_per_pixel / 8 + y * finfo.line_length;
 //	printf("success\n");
 //	printf("fbp : %x, p : %x\n", fbp, p);
-	printf("%s\n", pixel);
+//	printf("%s\n", pixel);
 	drawBmp(p, pixel, width, height);
 }
 

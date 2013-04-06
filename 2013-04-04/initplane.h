@@ -4,6 +4,7 @@
 #include "showpic.h"
 #include "planetype.h"
 #include "basetype.h"
+#include "display.h"
 
 #define NUMOFENEMYPLANES 3	// the number of type of enemy planes
 struct airplane Plane_type_1;
@@ -42,14 +43,14 @@ int enemy_plane1_init()
 	char path[32] = "img/enemyplane1.bmp";
 
 	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
 	ReadBitmapInfoHeader(path, &info_header);
 	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
 	Plane_type_1.pixel = (char *) malloc (size);
 	Plane_type_1.width = info_header.ciWidth;
 	Plane_type_1.height = info_header.ciHeight;
-	readn(path, Plane_type_1.pixel, size);
-//	getBmpPixel (path, Plane_type_1.pixel);
-//	getPixelWidthHeight (path, Plane_type_1.pixel, &Plane_type_1.width, &Plane_type_1.height);
+
+	getBmpPixel (path, Plane_type_1.pixel);
 
 	Plane_type_1.type = 1;
 	Plane_type_1.attack = 100;
@@ -78,13 +79,14 @@ int enemy_plane2_init()
 	char path[32] = "img/enemyplane1.bmp";
 
 	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
 	ReadBitmapInfoHeader(path, &info_header);
 	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
 	Plane_type_2.pixel = (char *) malloc (size);
 	Plane_type_2.width = info_header.ciWidth;
 	Plane_type_2.height = info_header.ciHeight;
 	getBmpPixel (path, Plane_type_2.pixel);
-//	getPixelWidthHeight (path, Plane_type_2.pixel, &Plane_type_2.width, &Plane_type_2.height);
 
 	Plane_type_2.type = 2;
 	Plane_type_2.attack = 100;
@@ -113,13 +115,14 @@ int enemy_plane3_init()
 	char path[32] = "img/enemyplane1.bmp";
 
 	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
 	ReadBitmapInfoHeader(path, &info_header);
 	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
 	Plane_type_3.pixel = (char *) malloc (size);
 	Plane_type_3.width = info_header.ciWidth;
 	Plane_type_3.height = info_header.ciHeight;
 	getBmpPixel (path, Plane_type_3.pixel);
-//	getPixelWidthHeight (path, Plane_type_3.pixel, &Plane_type_3.width, &Plane_type_3.height);
 
 	Plane_type_3.type = 3;
 	Plane_type_3.attack = 100;
@@ -148,18 +151,19 @@ int my_plane1_init()
 	char path[32] = "img/myplane1.bmp";
 
 	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
 	ReadBitmapInfoHeader(path, &info_header);
 	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
 	Myplane_type_1.pixel = (char *) malloc (size);
 	Myplane_type_1.width = info_header.ciWidth;
 	Myplane_type_1.height = info_header.ciHeight;
 	getBmpPixel (path, Myplane_type_1.pixel);
-//	getPixelWidthHeight (path, Myplane_type_1.pixel, &Myplane_type_1.width, &Myplane_type_1.height);
 
 	Myplane_type_1.type = 1;
 	Myplane_type_1.attack = 100;
 	Myplane_type_1.defense = 100;
-	Myplane_type_1.hor_speed = 10;
+	Myplane_type_1.hor_speed = 20;
 	Myplane_type_1.ver_speed = 10;
 	Myplane_type_1.type_of_bullet = 1;
 	Myplane_type_1.current_pos.x = 0;
@@ -183,13 +187,14 @@ int my_plane2_init()
 	char path[32] = "img/myplane1.bmp";
 
 	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+	
 	ReadBitmapInfoHeader(path, &info_header);
 	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
 	Myplane_type_2.pixel = (char *) malloc (size);
 	Myplane_type_2.width = info_header.ciWidth;
 	Myplane_type_2.height = info_header.ciHeight;
 	getBmpPixel (path, Myplane_type_2.pixel);
-//	getPixelWidthHeight (path, Myplane_type_2.pixel, &Myplane_type_2.width, &Myplane_type_2.height);
 
 	Myplane_type_2.type = 2;
 	Myplane_type_2.attack = 100;
@@ -218,13 +223,14 @@ int my_plane3_init()
 	char path[32] = "img/myplane1.bmp";
 
 	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
 	ReadBitmapInfoHeader(path, &info_header);
 	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
 	Myplane_type_3.pixel = (char *) malloc (size);
 	Myplane_type_3.width = info_header.ciWidth;
 	Myplane_type_3.height = info_header.ciHeight;
 	getBmpPixel (path, Myplane_type_3.pixel);
-//	getPixelWidthHeight (path, Myplane_type_3.pixel, &Myplane_type_3.width, &Myplane_type_3.height);
 
 	Myplane_type_3.type = 3;
 	Myplane_type_3.attack = 100;
@@ -267,7 +273,16 @@ int bullet1_init()
 {
 	char path[32] = "img/bullet1.bmp";
 	
-	getPixelWidthHeight (path, Bullet_type_1.pixel, &Bullet_type_1.width, &Bullet_type_1.height );
+	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
+	ReadBitmapInfoHeader(path, &info_header);
+	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
+	Bullet_type_1.pixel = (char *) malloc (size);
+	Bullet_type_1.width = info_header.ciWidth;
+	Bullet_type_1.height = info_header.ciHeight;
+
+	getBmpPixel (path, Bullet_type_1.pixel);
 	
 	Bullet_type_1.type = 1;
 	Bullet_type_1.attack = 100;
@@ -286,7 +301,16 @@ int bullet2_init()
 {
 	char path[32] = "img/bullet1.bmp";
 	
+	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
+	ReadBitmapInfoHeader(path, &info_header);
+	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
+	Bullet_type_2.pixel = (char *) malloc (size);
+	Bullet_type_2.width = info_header.ciWidth;
+	Bullet_type_2.height = info_header.ciHeight;
 	getPixelWidthHeight (path, Bullet_type_2.pixel, &Bullet_type_2.width, &Bullet_type_2.height );
+	getBmpPixel (path, Bullet_type_2.pixel);
 	
 	Bullet_type_2.type = 2;
 	Bullet_type_2.attack = 100;
@@ -305,7 +329,15 @@ int bullet3_init()
 {
 	char path[32] = "img/bullet1.bmp";
 	
-	getPixelWidthHeight (path, Bullet_type_3.pixel, &Bullet_type_3.width, &Bullet_type_3.height );
+	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
+	ReadBitmapInfoHeader(path, &info_header);
+	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
+	Bullet_type_3.pixel = (char *) malloc (size);
+	Bullet_type_3.width = info_header.ciWidth;
+	Bullet_type_3.height = info_header.ciHeight;
+	getBmpPixel (path, Bullet_type_3.pixel);
 	
 	Bullet_type_3.type = 3;
 	Bullet_type_3.attack = 100;
@@ -332,7 +364,16 @@ int init_bullet()
 int background1_init()
 {
 	char path[32] = "img/background1.bmp";
-	getPixelWidthHeight(path, background1.wall.pixel, &background1.wall.width, &background1.wall.height );
+	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
+	ReadBitmapInfoHeader(path, &info_header);
+	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
+	background1.wall.pixel = (char *) malloc (size);
+	background1.wall.width = info_header.ciWidth;
+	background1.wall.height = info_header.ciHeight;
+	getBmpPixel (path, background1.wall.pixel);
+
 	background1.speed = 6;
 	background1.current_pos.x = 0;
 	background1.current_pos.y = 0;
@@ -343,7 +384,16 @@ int background1_init()
 int background2_init()
 {
 	char path[32] = "img/background1.bmp";
-	getPixelWidthHeight(path, background2.wall.pixel, &background2.wall.width, &background2.wall.height );
+	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
+	ReadBitmapInfoHeader(path, &info_header);
+	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
+	background2.wall.pixel = (char *) malloc (size);
+	background2.wall.width = info_header.ciWidth;
+	background2.wall.height = info_header.ciHeight;
+
+	getBmpPixel (path, background2.wall.pixel);
 	background2.speed = 6;
 	background2.current_pos.x = 0;
 	background2.current_pos.y = 0;
@@ -354,7 +404,16 @@ int background2_init()
 int background3_init()
 {
 	char path[32] = "img/background1.bmp";
-	getPixelWidthHeight(path, background3.wall.pixel, &background3.wall.width, &background3.wall.height );
+	BITMAPINFOHEADER info_header;
+	bzero(&info_header, sizeof(BITMAPINFOHEADER));
+
+	ReadBitmapInfoHeader(path, &info_header);
+	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
+	background3.wall.pixel = (char *) malloc (size);
+	background3.wall.width = info_header.ciWidth;
+	background3.wall.height = info_header.ciHeight;
+
+	getBmpPixel (path, background3.wall.pixel);
 	background3.speed = 6;
 	background3.current_pos.x = 0;
 	background3.current_pos.y = 0;
@@ -374,6 +433,8 @@ int init_background()
 void copy_plane_data(struct airplane* dest, struct airplane* src)
 {
 	dest->pixel = src->pixel;
+	dest->width = src->width;
+	dest->height = src->height;
 	dest->type = src->type;
 	dest->attack = src->attack;
 	dest->defense = src->defense;
@@ -398,6 +459,8 @@ void copy_plane_data(struct airplane* dest, struct airplane* src)
 void copy_bullet_data(struct bullet* dest, struct bullet* src)
 {
 	dest->pixel = src->pixel;
+	dest->width = src->width;
+	dest->height = src->height;
 	dest->type = src->type;
 	dest->attack = src->attack;
 	dest->speed = src->speed;
