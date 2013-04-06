@@ -59,7 +59,8 @@ void update_enemy_plane()
 	struct airplane *p = enemy_plane_head->next;
 	while(p != NULL)
 	{
-		enemy_plane_update(p++);
+		enemy_plane_update(p);
+		p = p->next;
 	}
 }
 
@@ -87,13 +88,15 @@ void update_bullet()
 	struct bullet *p = enemy_bullet_head->next;
 	while(p != NULL)
 	{
-		bullet_update(p++);
+		bullet_update(p);
+		p = p->next;
 	}
 	
 	p = my_bullet_head->next;
 	while(p != NULL)
 	{
-		bullet_update(p++);
+		bullet_update(p);
+		p = p->next;
 	}
 }
 

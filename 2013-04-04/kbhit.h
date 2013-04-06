@@ -11,6 +11,8 @@
 #include <curses.h>
 #include <unistd.h>
 
+#include "packetfunction.h"
+
 
 #define K_UP -99
 #define K_DOWN -98
@@ -55,7 +57,7 @@ int kbhit()
 		return 1;
 	new_settings.c_cc[VMIN] = 0;
 	tcsetattr(0, TCSANOW, &new_settings);
-	nread = read(0, &ch, 1);
+	nread = Read(0, &ch, 1);
 	new_settings.c_cc[VMIN] = 1;
 	tcsetattr(0, TCSANOW, &new_settings);
 	return ch;

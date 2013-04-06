@@ -66,7 +66,7 @@ void generate_enemy_bullet()
 	static int times = 0;
 	if(times == Rate)
 	{
-		struct airplane *p = enemy_plane_head;
+		struct airplane *p = enemy_plane_head->next;
 		while (p != NULL)
 		{
 			struct bullet *blt;

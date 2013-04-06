@@ -47,7 +47,8 @@ int enemy_plane1_init()
 	Plane_type_1.pixel = (char *) malloc (size);
 	Plane_type_1.width = info_header.ciWidth;
 	Plane_type_1.height = info_header.ciHeight;
-	getBmpPixel (path, Plane_type_1.pixel);
+	readn(path, Plane_type_1.pixel, size);
+//	getBmpPixel (path, Plane_type_1.pixel);
 //	getPixelWidthHeight (path, Plane_type_1.pixel, &Plane_type_1.width, &Plane_type_1.height);
 
 	Plane_type_1.type = 1;
@@ -82,7 +83,7 @@ int enemy_plane2_init()
 	Plane_type_2.pixel = (char *) malloc (size);
 	Plane_type_2.width = info_header.ciWidth;
 	Plane_type_2.height = info_header.ciHeight;
-	getBmpPixel (path, Plane_type_1.pixel);
+	getBmpPixel (path, Plane_type_2.pixel);
 //	getPixelWidthHeight (path, Plane_type_2.pixel, &Plane_type_2.width, &Plane_type_2.height);
 
 	Plane_type_2.type = 2;
@@ -117,7 +118,7 @@ int enemy_plane3_init()
 	Plane_type_3.pixel = (char *) malloc (size);
 	Plane_type_3.width = info_header.ciWidth;
 	Plane_type_3.height = info_header.ciHeight;
-	getBmpPixel (path, Plane_type_1.pixel);
+	getBmpPixel (path, Plane_type_3.pixel);
 //	getPixelWidthHeight (path, Plane_type_3.pixel, &Plane_type_3.width, &Plane_type_3.height);
 
 	Plane_type_3.type = 3;

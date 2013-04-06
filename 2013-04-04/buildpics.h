@@ -52,17 +52,19 @@ void build_enemy_plane()
 
 	while(p != NULL)
 	{
-		plane_build(p++);
+		plane_build(p);
+		p = p->next;
 	}
 }
 
 void build_my_plane()
 {
-	struct airplane *p = my_plane_head->next;
+	struct airplane *p = my_plane_head;
 
 	while(p != NULL)
 	{
-		plane_build(p++);
+		plane_build(p);
+		p = p->next;
 	}
 }
 
@@ -76,7 +78,8 @@ void build_enemy_bullet()
 	struct bullet *p = enemy_bullet_head->next;
 	while(p != NULL)
 	{
-		bullet_build(p++);
+		bullet_build(p);
+		p = p->next;
 	}
 }
 
@@ -85,7 +88,8 @@ void build_my_bullet()
 	struct bullet *p = my_bullet_head->next;
 	while(p != NULL)
 	{
-		bullet_build(p++);
+		bullet_build(p);
+		p = p->next;
 	}
 }
 

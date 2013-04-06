@@ -11,6 +11,7 @@
 
 #include "basetype.h"
 #include "drawpic.h"
+#include "packetfunction.h"
 
 BITMAPFILEHEADER File_header;
 BITMAPINFOHEADER Info_header;
@@ -22,29 +23,29 @@ extern char *fbp_limit_up;
 
 void ReadBitmapFileHeader(char *path, BITMAPFILEHEADER *file_header)
 {
-	int fp = open(path, O_RDONLY);
-	lseek(fp, 0, SEEK_SET);
-	read(fp, file_header->cfType, 2);
-	read(fp, &file_header->cfSize, 4);
-	read(fp, &file_header->cfReserved, 4);
-	read(fp, &file_header->cfoffBits, 4);
+	int fp = Open(path, O_RDONLY);
+	Lseek(fp, 0, SEEK_SET);
+	Read(fp, file_header->cfType, 2);
+	Read(fp, &file_header->cfSize, 4);
+	Read(fp, &file_header->cfReserved, 4);
+	Read(fp, &file_header->cfoffBits, 4);
 /*
 	printf("cfType : %s\n", file_header->cfType);
 	printf("cfSize : %ld\n", file_header->cfSize);
 	printf("cfReserved : %ld\n", file_header->cfReserved);
 	printf("cfoffBits : %ld\n", file_header->cfoffBits);
 */
-	close(fp);
+	Close(fp);
 
 }
 
 void readBitmapFileHeader(int fp, BITMAPFILEHEADER *file_header)
 {
-	lseek(fp, 0, SEEK_SET);
-	read(fp, file_header->cfType, 2);
-	read(fp, &file_header->cfSize, 4);
-	read(fp, &file_header->cfReserved, 4);
-	read(fp, &file_header->cfoffBits, 4);
+	Lseek(fp, 0, SEEK_SET);
+	Read(fp, file_header->cfType, 2);
+	Read(fp, &file_header->cfSize, 4);
+	Read(fp, &file_header->cfReserved, 4);
+	Read(fp, &file_header->cfoffBits, 4);
 /*
 	printf("cfType : %s\n", file_header->cfType);
 	printf("cfSize : %ld\n", file_header->cfSize);
@@ -56,19 +57,19 @@ void readBitmapFileHeader(int fp, BITMAPFILEHEADER *file_header)
 
 void ReadBitmapInfoHeader(char *path, BITMAPINFOHEADER *info_header)
 {
-	int fp = open(path, O_RDONLY);
-	lseek(fp, 14, SEEK_SET);
-	read(fp, info_header->ciSize, 4);
-	read(fp, &info_header->ciWidth, 4);
-	read(fp, &info_header->ciHeight, 4);
-	read(fp, info_header->ciPlanes, 2);
-	read(fp, &info_header->ciBitCount, 2);
-	read(fp, info_header->ciCompress, 4);
-	read(fp, info_header->ciSizeImage, 4);
-	read(fp, info_header->ciXPelsPerMeter, 4);
-	read(fp, info_header->ciYPelsPerMeter, 4);
-	read(fp, info_header->ciClrUsed, 4);
-	read(fp, info_header->ciClrImportant, 4);
+	int fp = Open(path, O_RDONLY);
+	Lseek(fp, 14, SEEK_SET);
+	Read(fp, info_header->ciSize, 4);
+	Read(fp, &info_header->ciWidth, 4);
+	Read(fp, &info_header->ciHeight, 4);
+	Read(fp, info_header->ciPlanes, 2);
+	Read(fp, &info_header->ciBitCount, 2);
+	Read(fp, info_header->ciCompress, 4);
+	Read(fp, info_header->ciSizeImage, 4);
+	Read(fp, info_header->ciXPelsPerMeter, 4);
+	Read(fp, info_header->ciYPelsPerMeter, 4);
+	Read(fp, info_header->ciClrUsed, 4);
+	Read(fp, info_header->ciClrImportant, 4);
 /*
 	printf("ciSize: %s\n", info_header->ciSize);
 	printf("ciWidth: %ld\n", info_header->ciWidth);
@@ -82,23 +83,23 @@ void ReadBitmapInfoHeader(char *path, BITMAPINFOHEADER *info_header)
 	printf("ciClrUsed: %s\n", info_header->ciClrUsed);
 	printf("ciClrImportant: %s\n", info_header->ciClrImportant);
 */
-	close(fp);
+	Close(fp);
 }
 
 void readBitmapInfoHeader(int fp, BITMAPINFOHEADER *info_header)
 {
-	lseek(fp, 14, SEEK_SET);
-	read(fp, info_header->ciSize, 4);
-	read(fp, &info_header->ciWidth, 4);
-	read(fp, &info_header->ciHeight, 4);
-	read(fp, info_header->ciPlanes, 2);
-	read(fp, &info_header->ciBitCount, 2);
-	read(fp, info_header->ciCompress, 4);
-	read(fp, info_header->ciSizeImage, 4);
-	read(fp, info_header->ciXPelsPerMeter, 4);
-	read(fp, info_header->ciYPelsPerMeter, 4);
-	read(fp, info_header->ciClrUsed, 4);
-	read(fp, info_header->ciClrImportant, 4);
+	Lseek(fp, 14, SEEK_SET);
+	Read(fp, info_header->ciSize, 4);
+	Read(fp, &info_header->ciWidth, 4);
+	Read(fp, &info_header->ciHeight, 4);
+	Read(fp, info_header->ciPlanes, 2);
+	Read(fp, &info_header->ciBitCount, 2);
+	Read(fp, info_header->ciCompress, 4);
+	Read(fp, info_header->ciSizeImage, 4);
+	Read(fp, info_header->ciXPelsPerMeter, 4);
+	Read(fp, info_header->ciYPelsPerMeter, 4);
+	Read(fp, info_header->ciClrUsed, 4);
+	Read(fp, info_header->ciClrImportant, 4);
 /*
 	printf("ciSize: %s\n", info_header->ciSize);
 	printf("ciWidth: %ld\n", info_header->ciWidth);
@@ -117,9 +118,12 @@ void readBitmapInfoHeader(int fp, BITMAPINFOHEADER *info_header)
 
 void readBmpPixel(int fp, long size, char *pixel)
 {
-	lseek(fp, 54, SEEK_SET);
-	int len = read(fp, pixel, size);
-
+//	char *pixel = (char*) malloc (size);
+	Lseek(fp, 54, SEEK_SET);
+	int len = Read(fp, pixel, size);
+//	printf("len: %d\n", len);
+//	memcpy(p, pixel, size);
+	//free(pixel);
 }
 
 
@@ -159,12 +163,8 @@ void drawBmp(char *fbp, char *pixel, long width, long height)
 
 void DrawBmp(char *fbp, char *path)
 {
-	int fp = open(path, O_RDONLY);
-	if(fp == -1)
-	{
-		perror("open");
-		exit(-1);
-	}
+	int fp = Open(path, O_RDONLY);
+
 	BITMAPFILEHEADER file_header;
 	BITMAPINFOHEADER info_header;
 	bzero(&file_header, sizeof(file_header) );
@@ -178,17 +178,13 @@ void DrawBmp(char *fbp, char *path)
 	readBmpPixel(fp, size, pixel);
 
 	drawBmp(fbp, pixel, info_header.ciWidth, info_header.ciHeight);
-	close(fp);
+	Close(fp);
 }
 
 void getBmpPixel(char *path, char *pixel)
 {
-	int fp = open(path, O_RDONLY);
-	if(fp == -1)
-	{
-		perror("open");
-		exit(-1);
-	}
+	int fp = Open(path, O_RDONLY);
+
 	BITMAPFILEHEADER file_header;
 	BITMAPINFOHEADER info_header;
 	bzero(&file_header, sizeof(file_header) );
@@ -198,9 +194,12 @@ void getBmpPixel(char *path, char *pixel)
 	readBitmapInfoHeader(fp, &info_header);
 
 	long size = info_header.ciWidth * info_header.ciHeight * info_header.ciBitCount / 8;
-	readBmpPixel(fp, size, pixel);
+//	readBmpPixel(fp, size, pixel);
+	Lseek(fp, 54, SEEK_SET);
+	int len = Read(fp, pixel, size);
 
-	close(fp);
+
+	Close(fp);
 }
 
 
@@ -243,12 +242,8 @@ void drawBmpPlus(char *fbp, char *pixel, long width, long height, int mul_row, i
 
 void getPixelWidthHeight(char *path, char *pixel, int *width, int *height)
 {
-	int fp = open(path, O_RDONLY);
-	if(fp == -1)
-	{
-		perror("open");
-		exit(-1);
-	}
+	int fp = Open(path, O_RDONLY);
+
 	BITMAPFILEHEADER file_header;
 	BITMAPINFOHEADER info_header;
 	bzero(&file_header, sizeof(file_header) );
@@ -264,10 +259,30 @@ void getPixelWidthHeight(char *path, char *pixel, int *width, int *height)
 
 	pixel = (char*) malloc (size);
 	readBmpPixel(fp, size, pixel);
+	free (pixel);
 
-	close(fp);
+	Close(fp);
 }
 
 
+void readn(char *path, char *pixel, int size)
+{
+	int sleft = size;
+	char *p = (char *) malloc (size);
+	int fd = Open(path, O_RDONLY);
+	int len;
+	Lseek (fd, 54, SEEK_SET);
+
+//	while(sleft > 0)
+	{
+		len = Read (fd, p, 1024);
+		sleft -= len;
+		printf("len : %d\n", len);
+		p += len;
+	}
+	memcpy ( pixel, p, size );
+
+// TIPS  bad address for read
+}
 #endif
 
