@@ -49,6 +49,7 @@ void generate_my_bullet()
 			init_bullet_data(blt);
 			blt->current_pos.x = p->current_pos.x;
 			blt->current_pos.y = p->current_pos.y - blt->height ;
+			blt->angel = -90;
 
 			my_bullet_tail->next = blt;
 			blt->prev = my_bullet_tail;

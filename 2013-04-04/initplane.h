@@ -286,7 +286,7 @@ int bullet1_init()
 	
 	Bullet_type_1.type = 1;
 	Bullet_type_1.attack = 100;
-	Bullet_type_1.speed = 1;
+	Bullet_type_1.speed = 10;
 	Bullet_type_1.current_pos.x = 0;
 	Bullet_type_1.current_pos.y = 0;
 	Bullet_type_1.angel = 90;
