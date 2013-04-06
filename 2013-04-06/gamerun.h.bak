@@ -1,0 +1,57 @@
+#ifndef GAMERUN
+#define GAMERUN _
+
+
+#include "generate.h"
+#include "buildpics.h"
+#include "updatepos.h"
+#include "clean.h"
+#include <pthread.h>
+
+extern Period;
+
+void *Update_all_things()
+{
+	for ( ; ; )
+	{
+		update_all_things();
+		usleep (Period);
+	}
+}
+
+void game_run()
+{
+	int pid;
+	pthread_t tid;
+	pthread_attr_t attr;
+
+	pid = fork();
+	if(pid == 0)
+	{
+	int i;
+	for( ;   ;  )   //  here should be    for ( ; ; )
+	{
+		generate_all_things();
+		build_all_things();
+//		update_all_things();
+		clean_all_zombies();
+
+		usleep(Period);
+	}
+	}
+	else
+	{
+		pthread_attr_init(&attr);
+		pthread_create(&tid, &attr, Update_all_things, NULL);
+		pthread_join(tid, NULL);
+		
+	}
+}
+
+
+
+
+
+
+
+#endif
