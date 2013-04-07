@@ -63,6 +63,12 @@ void scale_pic(struct bmpattr* src, int dest_width, int dest_height)
 //	free (p);
 }
 
+void begin_at_line( int line, struct bmpattr *bmp , int x, int y)
+{
+//	int location = line * bmp->width * bmp->bitcount / 8;
+	draw_pic_at ( x, y, bmp->pixel , bmp->width, bmp->height - line);
+}
+
 
 
 #endif

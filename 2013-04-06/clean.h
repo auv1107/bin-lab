@@ -11,6 +11,9 @@ extern struct airplane* my_plane_head;
 extern struct bullet* enemy_bullet_head;
 extern struct bullet* my_bullet_head;
 
+extern struct bullet* enemy_bullet_tail;
+extern struct bullet* my_bullet_tail;
+
 
 void clean_enemy_planes()
 {
@@ -46,6 +49,11 @@ void clean_all_bullets()
 			if (p->next != NULL)
 			{
 				p->next->prev = p->prev;
+
+			}
+			else
+			{
+				enemy_bullet_tail = p->prev;
 			}
 			tmp = p;
 			p = p->next;
@@ -66,6 +74,10 @@ void clean_all_bullets()
 			if (p->next != NULL)
 			{
 				p->next->prev = p->prev;
+			}
+			else
+			{
+				my_bullet_tail = p->prev;
 			}
 			tmp = p;
 			p = p->next;

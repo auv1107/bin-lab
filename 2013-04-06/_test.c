@@ -44,8 +44,9 @@ int main()
 //	init_all_modules();
 	
 	scale_pic(&background1.wall, 1000, 568);
+	begin_at_line ( 500, &background1.wall, 0, 0);
 //	draw_pic_at ( 300, 400, my_plane_head->bmp.pixel, my_plane_head->bmp.width, my_plane_head->bmp.height);
-	draw_pic_at ( 0 , 0 , background1.wall.pixel, background1.wall.width, background1.wall.height);
+//	draw_pic_at ( 0 , 0 , background1.wall.pixel, background1.wall.width, background1.wall.height);
 	fbd_exit();
 
 	game_exit();

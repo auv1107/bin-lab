@@ -27,9 +27,9 @@ extern int screen_floor_limit;
 
 void update_wallpaper()
 {
-	current_wall->current_pos.y += current_wall->speed;
-	if (current_wall->current_pos.y >= screen_floor_limit )
-		current_wall->current_pos.y = screen_ceil_limit ;
+	current_wall->current_pos.y -= current_wall->speed;
+	if (current_wall->current_pos.y <= screen_floor_limit )
+		current_wall->current_pos.y = ( screen_floor_limit - screen_ceil_limit) * 2 ;
 	//TODO  optimize the way to reset pos
 }
 

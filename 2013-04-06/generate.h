@@ -39,7 +39,7 @@ void generate_enemy_plane()
 void generate_my_bullet()
 {
 	static int times = 0;
-	if(times == Rate/10)
+	if(times == Rate/20)
 	{
 		struct airplane *p = my_plane_head;
 		while(p != NULL)

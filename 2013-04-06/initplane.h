@@ -429,11 +429,11 @@ int background1_init()
 	background1.wall.bitcount = info_header.ciBitCount;
 
 	getBmpPixel (path, background1.wall.pixel);
-	scale_pic (&background1.wall , screen_right_limit - screen_left_limit,  (screen_floor_limit - screen_ceil_limit * 3));
+	scale_pic (&background1.wall , screen_right_limit - screen_left_limit,  (screen_floor_limit - screen_ceil_limit) * 3);
 
 	background1.speed = 6;
 	background1.current_pos.x = 0;
-	background1.current_pos.y = 0;
+	background1.current_pos.y = 2 * (screen_floor_limit - screen_ceil_limit);
 
 	return 0;
 }

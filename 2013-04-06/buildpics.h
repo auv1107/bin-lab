@@ -22,7 +22,8 @@ extern char *fbp;
 int background_build(struct wallpaper *background)
 {
 	//  optimize the way to show a wallpaper
-	draw_pic_at (background->current_pos.x, background->current_pos.y, background->wall.pixel, background->wall.width, background->wall.height);
+//	draw_pic_at (background->current_pos.x, background->current_pos.y, background->wall.pixel, background->wall.width, background->wall.height);
+	begin_at_line (background->current_pos.y , &background->wall, 0, 0);
 
 	return 0;
 }
